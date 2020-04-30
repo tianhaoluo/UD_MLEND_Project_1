@@ -13249,7 +13249,7 @@ Saving to: ‘../data/aclImdb_v1.tar.gz’
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="k">import</span> <span class="n">shuffle</span>
 
 <span class="k">def</span> <span class="nf">prepare_imdb_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Prepare training and test sets from IMDb movie reviews.&quot;&quot;&quot;</span>
@@ -13360,11 +13360,11 @@ Saving to: ‘../data/aclImdb_v1.tar.gz’
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
-<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
-<span class="kn">from</span> <span class="nn">nltk.stem.porter</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span> <span class="nn">nltk.stem.porter</span> <span class="k">import</span> <span class="o">*</span>
 
 <span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
 
 <span class="k">def</span> <span class="nf">review_to_words</span><span class="p">(</span><span class="n">review</span><span class="p">):</span>
     <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;stopwords&quot;</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -13387,7 +13387,8 @@ Saving to: ‘../data/aclImdb_v1.tar.gz’
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>review_to_words</code> method defined above uses <code>BeautifulSoup</code> to remove any html tags that appear and uses the <code>nltk</code> package to tokenize the reviews. As a check to ensure we know how everything is working, try applying <code>review_to_words</code> to one of the reviews in the training set.</p>
+<p><strong>Question</strong>: What does 'review_to_words' do?</p>
+<p><strong>Answer</strong>: The <code>review_to_words</code> method defined above uses <code>BeautifulSoup</code> to remove any html tags that appear and uses the <code>nltk</code> package to tokenize the reviews. As a check to ensure we know how everything is working, try applying <code>review_to_words</code> to one of the reviews in the training set.</p>
 
 </div>
 </div>
@@ -13628,7 +13629,7 @@ Saving to: ‘../data/aclImdb_v1.tar.gz’
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The method below applies the <code>review_to_words</code> method to each of the reviews in the training and testing datasets. In addition it caches the results. This is because performing this processing step can take a long time. This way if you are unable to complete the notebook in the current session, you can come back without needing to process the data a second time.</p>
+<p>The method below (<code>pre_process_data</code>) applies the <code>review_to_words</code> method to each of the reviews in the training and testing datasets. In addition it caches the results. This is because performing this processing step can take a long time. This way if you are unable to complete the notebook in the current session, you can come back without needing to process the data a second time.</p>
 
 </div>
 </div>
@@ -13742,7 +13743,7 @@ Saving to: ‘../data/aclImdb_v1.tar.gz’
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Counter</span>
 
 <span class="k">def</span> <span class="nf">build_dict</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">vocab_size</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Construct and return a dictionary mapping each of the most frequently appearing words to a unique integer.&quot;&quot;&quot;</span>
@@ -13858,7 +13859,7 @@ Saving to: ‘../data/aclImdb_v1.tar.gz’
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>'movi' and 'film' are on the top of the list. It makes sense since this is a collection of movie reviews.</p>
+<p>'movi' and 'film' are on the top of the list. It makes sense since this is a collection of movie reviews. Other top 5 words are 'one', 'like' and 'time'.</p>
 
 </div>
 </div>
@@ -13903,7 +13904,8 @@ Saving to: ‘../data/aclImdb_v1.tar.gz’
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Transform-the-reviews">Transform the reviews<a class="anchor-link" href="#Transform-the-reviews">&#182;</a></h3><p>Now that we have our word dictionary which allows us to transform the words appearing in the reviews into integers, it is time to make use of it and convert our reviews to their integer sequence representation, making sure to pad or truncate to a fixed length, which in our case is <code>500</code>.</p>
+<h3 id="Transform-the-reviews">Transform the reviews<a class="anchor-link" href="#Transform-the-reviews">&#182;</a></h3><p><strong>Question</strong>: What does <code>convert_and_pad</code> do?</p>
+<p><strong>Answer</strong>: Now that we have our word dictionary which allows us to transform the words appearing in the reviews into integers, it is time to make use of it and convert our reviews to their integer sequence representation, making sure to pad or truncate to a fixed length, which in our case is <code>500</code>.</p>
 
 </div>
 </div>
@@ -14406,7 +14408,7 @@ Saving to: ‘../data/aclImdb_v1.tar.gz’
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
-<span class="kn">from</span> <span class="nn">train.model</span> <span class="kn">import</span> <span class="n">LSTMClassifier</span>
+<span class="kn">from</span> <span class="nn">train.model</span> <span class="k">import</span> <span class="n">LSTMClassifier</span>
 
 <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">LSTMClassifier</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
@@ -14466,7 +14468,7 @@ Epoch: 5, BCELoss: 0.6579636096954345
 <div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sagemaker.pytorch</span> <span class="kn">import</span> <span class="n">PyTorch</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sagemaker.pytorch</span> <span class="k">import</span> <span class="n">PyTorch</span>
 
 <span class="n">estimator</span> <span class="o">=</span> <span class="n">PyTorch</span><span class="p">(</span><span class="n">entry_point</span><span class="o">=</span><span class="s2">&quot;train.py&quot;</span><span class="p">,</span>
                     <span class="n">source_dir</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">,</span>
@@ -14785,7 +14787,7 @@ Billable seconds: 2465
 <div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">accuracy_score</span>
 <span class="n">accuracy_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
 </pre></div>
 
@@ -15151,11 +15153,11 @@ Billable seconds: 2465
 <div class="prompt input_prompt">In&nbsp;[118]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sagemaker.predictor</span> <span class="kn">import</span> <span class="n">RealTimePredictor</span>
-<span class="kn">from</span> <span class="nn">sagemaker.pytorch</span> <span class="kn">import</span> <span class="n">PyTorchModel</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sagemaker.predictor</span> <span class="k">import</span> <span class="n">RealTimePredictor</span>
+<span class="kn">from</span> <span class="nn">sagemaker.pytorch</span> <span class="k">import</span> <span class="n">PyTorchModel</span>
 
 <span class="k">class</span> <span class="nc">StringPredictor</span><span class="p">(</span><span class="n">RealTimePredictor</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint_name</span><span class="p">,</span> <span class="n">sagemaker_session</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint_name</span><span class="p">,</span> <span class="n">sagemaker_session</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">StringPredictor</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">endpoint_name</span><span class="p">,</span> <span class="n">sagemaker_session</span><span class="p">,</span> <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;text/plain&#39;</span><span class="p">)</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">PyTorchModel</span><span class="p">(</span><span class="n">model_data</span><span class="o">=</span><span class="n">estimator</span><span class="o">.</span><span class="n">model_data</span><span class="p">,</span>
@@ -15283,7 +15285,7 @@ Starting  neg  files
 <div class="prompt input_prompt">In&nbsp;[134]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">accuracy_score</span>
 <span class="n">accuracy_score</span><span class="p">(</span><span class="n">ground</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
 </pre></div>
 
@@ -15498,10 +15500,10 @@ Starting  neg  files
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[138]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">predictor</span><span class="o">.</span><span class="n">delete_endpoint</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">predictor_web</span><span class="o">.</span><span class="n">delete_endpoint</span><span class="p">()</span>
 </pre></div>
 
     </div>
